@@ -6,16 +6,16 @@ function App() {
   const [firstName,setFirstName] = useState("");
   const [lastName,setLastName] = useState("");
 
-  console.log(firstName);
-  console.log(lastName);
-
+  
   function changeFirstNameHandler(event){
     // console.log("first name - "+event.target.value);
     setFirstName(event.target.value);
   }
+  console.log(firstName);
   function changeLastNameHandler(event){
     // console.log("last name - " + event.target.value);
     setLastName(event.target.value);
+    console.log(lastName);
   }
   return (
     <div className="App">
