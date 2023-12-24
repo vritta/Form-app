@@ -24,7 +24,7 @@ function App() {
     setFormData((prev)=>{return {...prev,[name]: type==="checkbox"?checked:value} });
     console.log(event.target);
   }
-  console.log(formData.firstName, formData.lastName);
+  console.log(formData);
   return (
     <div className="App">
       <form action="">
@@ -39,7 +39,7 @@ function App() {
         <br /><br />
         <input type="checkbox"
           onChange={changeHandler} name='isVisible' checked={formData.isVisible}
-          id='checkBox' value={formData.isVisible}
+          id='checkBox'
         />
         <label htmlFor="checkBox">Am I Visible ?</label>
       </form>
