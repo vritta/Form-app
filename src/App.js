@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
@@ -18,10 +17,12 @@ function App() {
   //   console.log(lastName);
   // }
 
-  const [formData, setFormData] = useState({firstName:"", lastName:""});
+  const [formData, setFormData] = useState({firstName:"", lastName:"", isVisible:true});
 
-  function changeHandler(event){
-    setFormData((prev)=>( {...prev,[event.target.name]: event.target.value} ));
+  function changeHandler(event){  
+    const {name,type,value,checked} = event.target;
+    setFormData((prev)=>{return {...prev,[name]: type==="checkbox"?checked:value} });
+    console.log(event.target);
   }
   console.log(formData.firstName, formData.lastName);
   return (
@@ -29,11 +30,18 @@ function App() {
       <form action="">
         <input type="text" placeholder='first name' 
           onChange={changeHandler} name='firstName'
+          value={formData.firstName}
         />
         <br /><br />
         <input type="text" placeholder='last name' 
           onChange={changeHandler} name='lastName'
         />
+        <br /><br />
+        <input type="checkbox"
+          onChange={changeHandler} name='isVisible' checked={formData.isVisible}
+          id='checkBox' value={formData.isVisible}
+        />
+        <label htmlFor="checkBox">Am I Visible ?</label>
       </form>
     </div>
   );
